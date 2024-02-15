@@ -1,6 +1,7 @@
 // Import required modules
 const express = require("express");
 const bodyParser = require("body-parser");
+const axios = require("axios");
 
 // Create an instance of Express
 const app = express();
@@ -17,9 +18,21 @@ app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
 
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
   console.log('Login request');
   console.log(req.body);
+
+  const { code } = req.query; // Authorization grant code received from Apple
+  const { data } = await axios.post('https://appleid.apple.com/auth/token', {
+    grant_type: 'authorization_code',
+    code,
+    client_id: 'poble.membership.test',
+    client_secret: 'eyJhbGciOiJFUzI1NiIsImtpZCI6Ik5TODhSTkJEN1UifQ.eyJhdWQiOiJodHRwczovL2FwcGxlaWQuYXBwbGUuY29tIiwiaXNzIjoiOE4yM1AzNDZGRiIsImlhdCI6MTcwNzk3MTY2MywiZXhwIjoxNzIzNTIzNjY0LCJzdWIiOiJwb2JsZS5tZW1iZXJzaGlwLnRlc3QifQ.XvaszVaex19_tG3P3UYQ4n8aZgGCUhIoPakc5TOVFdaGKkXZAoVCgmbjFlqFOSXI_EwEHQD0STdVhxdgz4t-8g',
+    redirect_uri: 'http://localhost:3000/signin',
+  });
+
+  console.log(data);
+
   res.send("Data received successfully!");
 });
 
