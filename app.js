@@ -22,7 +22,7 @@ app.post("/login", async (req, res) => {
   console.log('Login request');
   console.log(req.body);
 
-  const { code } = req.query; // Authorization grant code received from Apple
+  const { code } = req.body; // Authorization grant code received from Apple
   const { data } = await axios.post('https://appleid.apple.com/auth/token', {
     grant_type: 'authorization_code',
     code,
@@ -32,8 +32,6 @@ app.post("/login", async (req, res) => {
   });
 
   console.log(data);
-
-  res.send("Data received successfully!");
 });
 
 // Start the server
