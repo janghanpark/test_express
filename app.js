@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
+  console.log('Login request');
   console.log(req.body);
   res.send("Data received successfully!");
 });
