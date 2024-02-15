@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 
 // Define a route
 app.get("/", (req, res) => {
+  console.log('hello');
   res.send("Hello, World!");
 });
 
