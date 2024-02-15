@@ -33,7 +33,6 @@ app.post("/login", async (req, res) => {
         client_id: "poble.membership.test",
         client_secret:
           "eyJhbGciOiJFUzI1NiIsImtpZCI6Ik5TODhSTkJEN1UifQ.eyJhdWQiOiJodHRwczovL2FwcGxlaWQuYXBwbGUuY29tIiwiaXNzIjoiOE4yM1AzNDZGRiIsImlhdCI6MTcwNzk3MTY2MywiZXhwIjoxNzIzNTIzNjY0LCJzdWIiOiJwb2JsZS5tZW1iZXJzaGlwLnRlc3QifQ.XvaszVaex19_tG3P3UYQ4n8aZgGCUhIoPakc5TOVFdaGKkXZAoVCgmbjFlqFOSXI_EwEHQD0STdVhxdgz4t-8g",
-        redirect_uri: "https://test-express-zaer.onrender.com",
       },
       {
         headers: {
