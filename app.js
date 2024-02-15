@@ -23,16 +23,16 @@ app.post("/login", async (req, res) => {
   console.log(req.body);
 
   const { code } = req.body; // Authorization grant code received from Apple
-  console.log(code);
-  // const { data } = await axios.post('https://appleid.apple.com/auth/token', {
-  //   grant_type: 'authorization_code',
-  //   code,
-  //   client_id: 'poble.membership.test',
-  //   client_secret: 'eyJhbGciOiJFUzI1NiIsImtpZCI6Ik5TODhSTkJEN1UifQ.eyJhdWQiOiJodHRwczovL2FwcGxlaWQuYXBwbGUuY29tIiwiaXNzIjoiOE4yM1AzNDZGRiIsImlhdCI6MTcwNzk3MTY2MywiZXhwIjoxNzIzNTIzNjY0LCJzdWIiOiJwb2JsZS5tZW1iZXJzaGlwLnRlc3QifQ.XvaszVaex19_tG3P3UYQ4n8aZgGCUhIoPakc5TOVFdaGKkXZAoVCgmbjFlqFOSXI_EwEHQD0STdVhxdgz4t-8g',
-  //   redirect_uri: 'https://test-express-zaer.onrender.com',
-  // });
 
-  // console.log(data);
+  const { data } = await axios.post('https://appleid.apple.com/auth/token', {
+    grant_type: 'authorization_code',
+    code,
+    client_id: 'poble.membership.test.app',
+    client_secret: 'eyJhbGciOiJFUzI1NiIsImtpZCI6Ik5TODhSTkJEN1UifQ.eyJhdWQiOiJodHRwczovL2FwcGxlaWQuYXBwbGUuY29tIiwiaXNzIjoiOE4yM1AzNDZGRiIsImlhdCI6MTcwNzk3MTY2MywiZXhwIjoxNzIzNTIzNjY0LCJzdWIiOiJwb2JsZS5tZW1iZXJzaGlwLnRlc3QifQ.XvaszVaex19_tG3P3UYQ4n8aZgGCUhIoPakc5TOVFdaGKkXZAoVCgmbjFlqFOSXI_EwEHQD0STdVhxdgz4t-8g',
+    redirect_uri: 'https://test-express-zaer.onrender.com',
+  });
+
+  console.log(data);
 });
 
 // Start the server
