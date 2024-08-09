@@ -16,6 +16,7 @@ app.use(
     origin: [
       "https://dev-membership.poble.com.au",
       "https://dev-member.ecnesoft.com",
+      "http://localhost:3000",
     ],
     credentials: true,
   })
