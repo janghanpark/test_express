@@ -11,7 +11,15 @@ const app = express();
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://dev-membership.poble.com.au",
+      "https://dev-member.ecnesoft.com",
+    ],
+    credentials: true,
+  })
+);
 app.use(cookieParser());
 
 // Parse JSON bodies (as sent by API clients)
